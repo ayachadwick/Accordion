@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> accordion with JavaScript practice part 2 </title>
+	<style type='text/css'>
+	.accordion-body--inactive{
+		display: none;
+	}
+	.accordion-body--active{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+	<div id="accordion">
+		<div id="accordion-section-1">
+			<h2 class="accordion-header">Section 1</h2>
+			<p class="accordion-body--inactive">1 JavaScript accordions let you squeeze a lot of content into a small space in a Web page.</p>
+		</div>
+		<div id="accordion-section-2">
+			<h2 class="accordion-header">Section 2</h2>
+			<p class="accordion-body--inactive">2 JavaScript accordions let you squeeze a lot of content into a small space in a Web page.</p>
+		</div>
+		<div id="accordion-section-3">
+			<h2 class="accordion-header">Section 3</h2>
+			<p class="accordion-body--inactive">3 JavaScript accordions let you squeeze a lot of content into a small space in a Web page.</p>
+		</div>
+		<div id="accordion-section-4">
+			<h2 class="accordion-header">Section 4</h2>
+			<p class="accordion-body--inactive">4 JavaScript accordions let you squeeze a lot of content into a small space in a Web page.</p>
+		</div>	
+	</div>
+	<script>
+	function Accordion(id) {
+		var element = document.getElementById(id);
+		element.addEventListener('click', function(event) {
+			if (event.target.classList.contains('accordion-header')) {
+				console.log(event.target.nextElementSibling);
+				toggleClass(event.target.nextElementSibling);
+			}
+		})
+		
+		function toggleClass(target) {
+			if (target.classList.contains('accordion-body--inactive')) {
+				target.classList.add('accordion-body--active');
+				target.classList.remove('accordion-body--inactive');
+			} else {
+				target.classList.remove('accordion-body--active');
+				target.classList.add('accordion-body--inactive');
+			}
+		}
+	}	
+	Accordion('accordion');
+	</script>
+</body>
+</html>
